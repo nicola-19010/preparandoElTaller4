@@ -3,14 +3,24 @@ package modelo;
 import java.util.ArrayList;
 
 public class Seleccion {
+    private String id;
     private String nombre;
     private String ranking;
     private ArrayList<Jugador> jugadores = new ArrayList<>();
 
-    public Seleccion(String nombre, String ranking, ArrayList<Jugador> jugadores) {
+    public Seleccion(String id, String nombre, String ranking, ArrayList<Jugador> jugadores) {
+        this.id = id;
         this.nombre = nombre;
         this.ranking = ranking;
         this.jugadores = jugadores;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getNombre() {

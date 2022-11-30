@@ -22,7 +22,7 @@ public class DatosJugadores {
             }
 
         } catch (Exception e) {
-            System.out.println("Documento no disponible");
+            System.out.println("Documento no disponible: Datos Jugadores");
         }
     }
 

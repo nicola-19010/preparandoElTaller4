@@ -14,19 +14,27 @@ public class DatosSelecciones {
 
 
         try {
-            File archivo = new File(direccionArchivo);
+            File archivo = new File("./src/main/resources/"+direccionArchivo);
             FileReader fr = new FileReader(archivo);
             BufferedReader br = new BufferedReader(fr);
 
-            ArrayList<Jugador> jugadores;
-            //DatosJugadores.leerArchivoJugadores(jugadores, );
+
+
             while ((textoArchivo = br.readLine()) != null){
+                ArrayList<Jugador> jugadores = new ArrayList<>();
                 String[] data = textoArchivo.split(";");
-                //selecciones.add(new Seleccion(data[0], data[1],data[2], ));
+                DatosJugadores.leerArchivoJugadores(jugadores, data[3].replaceAll("png","txt"));
+
+                selecciones.add(new Seleccion(data[0], data[1],data[2], jugadores));
             }
 
         } catch (Exception e) {
-            System.out.println("Documento no disponible");
+            System.out.println("Documento no disponible: Datos Selecciones");
         }
+    }
+
+    public static void main(String[] args) {
+        ArrayList<Seleccion> selecciones = new ArrayList<>();
+        DatosSelecciones.leerArchivoSelecciones(selecciones, "teams.txt");
     }
 }
